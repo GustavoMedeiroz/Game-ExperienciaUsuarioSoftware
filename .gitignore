@@ -1,0 +1,153 @@
+# This .gitignore file should be placed at the root of your Unity project directory
+
+# Ignore auto-generated files
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+[Mm]emoryCaptures/
+.assetstoretools/
+Assets/AssetStoreTools*
+
+# Ignore OS-specific files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Ignore project-specific files
+UserSettings/
+.vscode/
+
+# Ignore generated files from version control
+.vscode/
+.idea/
+*.csproj
+*.unityproj
+*.sln
+*.suo
+*.tmp
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.mdb
+*.opendb
+*.VC.db
+*.pidb.meta
+*.bak
+*.bak.meta
+
+# Ignore crash reports and log files
+sysinfo.txt
+error.log
+*.stacktrace
+
+# Ignore build results
+[Bb]uild/
+[Bb]uilds/
+DerivedDataCache/
+
+# Ignore temporary files created by editors
+.vscode/
+.idea/
+*.csproj
+*.unityproj
+*.sln
+*.suo
+*.tmp
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.mdb
+*.opendb
+*.VC.db
+*.pidb.meta
+*.bak
+*.bak.meta
+
+# Ignore Unity-generated files
+/[Ll]ibrary/
+/[Tt]emp/
+/[Oo]bj/
+/[Bb]uild/
+/[Bb]uilds/
+/[Ll]ogs/
+/[Mm]emoryCaptures/
+/[Dd]eployment/
+/*[Tt]est[Ss]cripts/
+/Assets/AssetStoreTools*
+
+# Ignore Visual Studio Code specific files
+.vscode/
+
+# Ignore JetBrains Rider specific files
+.idea/
+
+# Ignore auto-generated Asset meta data
+/[Ll]ibrary/
+
+/.vscode/
+/.idea/
+/*.csproj
+/*.unityproj
+/*.sln
+/*.suo
+/*.tmp
+/*.user
+/*.userprefs
+/*.pidb
+/*.booproj
+/*.svd
+/*.pdb
+/*.mdb
+/*.opendb
+/*.VC.db
+/*.pidb.meta
+/*.bak
+/*.bak.meta
+
+# Ignore other auto-generated files
+/.vs/
+.vscode/
+*.csproj
+*.unityproj
+*.sln
+*.suo
+*.tmp
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.mdb
+*.opendb
+*.VC.db
+*.pidb.meta
+*.bak
+*.bak.meta
+
+# Ignore crash reports and log files
+sysinfo.txt
+error.log
+*.stacktrace
+
+# Ignore build results
+/[Bb]uild/
+/[Bb]uilds/
+
+# Ignore memory captures
+/[Mm]emoryCaptures/
