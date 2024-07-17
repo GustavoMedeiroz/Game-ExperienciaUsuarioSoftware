@@ -35,27 +35,26 @@ public class UIManager : MonoBehaviour
         manaBar.fillAmount = Mathf.Lerp(manaBar.fillAmount,
             stats.Mana / stats.MaxMana, 10f * Time.deltaTime);
 
-        levelTMP.text = $"Level {stats.Level}";
         healthTMP.text = $"{stats.Health} / {stats.MaxHealth}";
         manaTMP.text = $"{stats.Mana} / {stats.MaxMana}";
 
         //UpdateHeartsUI();
     }
 
-    public void UpdateHeartsUI()
-    {
-        for (int i = 0; i < stats.MaxLife; i++)
-        {
-            if (i < stats.Life)
-            {
-                hearts[i].sprite = fullHeart;
-            }
-            else
-            {
-                hearts[i].sprite = emptyHeart;
-            }
+    // public void UpdateHeartsUI()
+    // {
+    //     for (int i = 0; i < stats.MaxLife; i++)
+    //     {
+    //         if (i < stats.Life)
+    //         {
+    //             hearts[i].sprite = fullHeart;
+    //         }
+    //         else
+    //         {
+    //             hearts[i].sprite = emptyHeart;
+    //         }
 
-            hearts[i].enabled = i < hearts.Length;
-        }
-    }
+    //         hearts[i].enabled = i < hearts.Length;
+    //     }
+    // }
 }
