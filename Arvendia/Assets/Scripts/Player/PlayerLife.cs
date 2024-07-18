@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -58,7 +59,18 @@ public class PlayerLife : MonoBehaviour
 
     private void PlayerDead()
     {
+        {
+
+        }
         playerAnimations.SetDeadAnimation();
     }
 
+    public void IncrementLife()
+    {
+        if (stats.Life < stats.MaxLife)
+        {
+            stats.Life++;
+            UpdateHeartsUI();
+        }
+    }
 }

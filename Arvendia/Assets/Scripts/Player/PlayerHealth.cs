@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Net.NetworkInformation;
 using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour, IDamageable
@@ -23,15 +24,43 @@ public class PlayerHealth : MonoBehaviour, IDamageable
         }
     }
 
+    public void RestoreHealth(float amount)
+    {
+        stats.Health += amount;
+        if (stats.Health >= stats.MaxHealth)
+        {
+            playerLife.IncrementLife();
+
+            if (stats.Life < stats.MaxLife)
+            {
+                float h = stats.Health - stats.MaxHealth;
+                stats.Health = h;
+            }
+            else
+            {
+                stats.Health = stats.MaxHealth;
+            }
+
+        }
+    }
+
+    public bool CanRestoreHealth()
+    {
+        return stats.Health >= 0 && stats.Life > 0 &&
+                ((stats.Health == 0 && stats.Life < stats.MaxLife) ||
+                (stats.Health == stats.MaxHealth && stats.Life < stats.MaxLife) ||
+                (stats.Health < stats.MaxHealth && stats.Life <= stats.MaxLife));
+    }
+
+
     public void TakeDamage(float amount)
     {
         stats.Health -= amount;
         if (stats.Health <= 0f)
         {
-            stats.Health = stats.MaxHealth;  // Reset health for the next heart
+            stats.Health = stats.MaxHealth;  // reseta a saude pro próximo coração
             playerLife.DecrementHeart();
         }
     }
-
 
 }

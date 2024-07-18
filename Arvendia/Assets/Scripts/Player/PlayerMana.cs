@@ -13,6 +13,17 @@ public class PlayerMana : MonoBehaviour
         }
     }
 
+    public void RecoverMana(float amount)
+    {
+        stats.Mana += amount;
+        stats.Mana = Mathf.Min(stats.Mana, stats.MaxMana);
+    }
+
+    public bool CanRecoverMana()
+    {
+        return stats.Mana >= 0 && stats.Mana < stats.MaxMana;
+    }
+
     public void UseMana(float amount)
     {
         if (stats.Mana >= amount)
