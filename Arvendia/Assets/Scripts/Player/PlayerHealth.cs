@@ -58,7 +58,10 @@ public class PlayerHealth : MonoBehaviour, IDamageable
         stats.Health -= amount;
         if (stats.Health <= 0f)
         {
-            stats.Health = stats.MaxHealth;  // reseta a saude pro próximo coração
+            if (stats.Life > 1)
+            {
+                stats.Health = stats.MaxHealth;
+            }  // reseta a saude pro próximo coração
             playerLife.DecrementHeart();
         }
     }

@@ -10,16 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3887978eca928dc4ba0899526568323d, type: 3}
-  m_Name: ItemTreasure_Key
+  m_Name: ItemTreasure_Key2
   m_EditorClassIdentifier: 
-  ID: TreasureKey
+  ID: TreasureKey2
   Name: Fragmento de Chave
-  Icon: {fileID: 21300000, guid: 3620d693c0563274ebfd9f8c62e16cd3, type: 3}
+  Icon: {fileID: 21300000, guid: 761a9507108fe9443b3255c16af6655a, type: 3}
   Description: "Um fragmento antigo e misterioso de uma chave poderosa. Encontrar
-    ambos os peda\xE7os permitir\xE1 acessar o desafio final. Este peda\xE7o emana
-    uma aura enigm\xE1tica, sugerindo seu papel crucial na jornada."
+    ambos os peda\xE7os permitir\xE1 acessar o desafio final."
   ItemType: 2
   IsConsumable: 0
   IsStackable: 0
-  MaxStack: 0
+  MaxStack: 1
   Quantity: 0

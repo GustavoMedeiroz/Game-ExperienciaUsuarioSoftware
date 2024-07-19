@@ -19,6 +19,6 @@ MonoBehaviour:
   ItemType: 1
   IsConsumable: 1
   IsStackable: 1
-  MaxStack: 10
+  MaxStack: 5
   Quantity: 0
   HealthValue: 2

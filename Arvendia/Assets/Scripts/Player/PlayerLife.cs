@@ -33,7 +33,7 @@ public class PlayerLife : MonoBehaviour
 
             UpdateHeartsUI();
 
-            if (stats.Life <= 0)
+            if (stats.Life <= 0 && stats.Health <= 0)
             {
                 PlayerDead();
             }
