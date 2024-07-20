@@ -1,18 +1,22 @@
-using Unity.VisualScripting;
 using UnityEngine;
 
-public class ClickableItem : MonoBehaviour
+public class PuzzleClickableItem : MonoBehaviour
 {
     [SerializeField] public Sprite newSprite; // Novo sprite para mostrar quando o jogador colidir
     [SerializeField] private Sprite originalSprite; // Sprite original para restaurar
     private SpriteRenderer spriteRenderer; // Referência ao componente SpriteRenderer
     [SerializeField] private UIManager uIManager;
-    [SerializeField] private PuzzleManager puzzleManager;
 
     [Header("Dialogue")]
     [SerializeField] private PlayerDialog playerDialogPuzzle;
     [SerializeField] private PlayerDialog playerDialogComplete;
     [SerializeField] private DialogueManager dialogManager;
+
+    [Header("Quest")]
+    [SerializeField] private Quest quest;
+
+    [Header("Audio")]
+    [SerializeField] private AudioSource hitAudio;
 
     private Collider2D objectCollider;
 
@@ -79,14 +83,25 @@ public class ClickableItem : MonoBehaviour
         }
     }
 
-    void OnObjectClicked()
+    public void TESTE()
     {
+
+    }
+
+    public void OnObjectClicked()
+    {
+        hitAudio.Play();
         if (uIManager)
         {
-            puzzleManager.InitializePuzzle();
-            if (playerDialogPuzzle.CanShow)
-            { dialogManager.ShowDialogue(playerDialogPuzzle); }
-            else { dialogManager.ShowDialogue(playerDialogComplete); }
+            if (!quest.QuestCompleted)
+            {
+                dialogManager.ShowDialogue(playerDialogPuzzle);
+            }
+            else
+            {
+
+                dialogManager.ShowDialogue(playerDialogComplete);
+            }
         }
         else
         {

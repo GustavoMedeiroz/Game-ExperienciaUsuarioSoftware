@@ -20,5 +20,6 @@ MonoBehaviour:
   ItemType: 2
   IsConsumable: 0
   IsStackable: 0
+  IsUnique: 1
   MaxStack: 1
   Quantity: 0

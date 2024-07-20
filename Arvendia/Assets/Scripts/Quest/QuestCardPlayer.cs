@@ -12,12 +12,18 @@ public class QuestCardPlayer : QuestCard
 
     private void Update()
     {
-        if (QuestToComplete.hasProgress)
+        if (QuestToComplete.hasProgress && !QuestToComplete.QuestCompleted)
         {
             statusTMP.text =
                 $"Status\n{QuestToComplete.CurrentStatus}/{QuestToComplete.QuestGoal}";
             imagePendente.SetActive(false);
             imageConcluida.SetActive(false);
+        }
+        else if (QuestToComplete.hasProgress && QuestToComplete.QuestCompleted)
+        {
+            statusTMP.enabled = false;
+            imagePendente.SetActive(false);
+            imageConcluida.SetActive(true);
         }
         else if (QuestToComplete.QuestCompleted)
         {
@@ -38,12 +44,18 @@ public class QuestCardPlayer : QuestCard
     {
         base.ConfigQuestUI(quest);
 
-        if (quest.hasProgress)
+        if (quest.hasProgress && !quest.QuestCompleted)
         {
             statusTMP.text =
                 $"Status\n{QuestToComplete.CurrentStatus}/{QuestToComplete.QuestGoal}";
             imagePendente.SetActive(false);
             imageConcluida.SetActive(false);
+        }
+        else if (quest.hasProgress && quest.QuestCompleted)
+        {
+            statusTMP.enabled = false;
+            imagePendente.SetActive(false);
+            imageConcluida.SetActive(true);
         }
         else if (quest.QuestCompleted)
         {
@@ -74,11 +86,6 @@ public class QuestCardPlayer : QuestCard
             imagePendente.SetActive(false);
             imageConcluida.SetActive(true);
         }
-    }
-
-    public void AddToInventory(Quest quest)
-    {
-        Inventory.Instance.AddItem(quest.Reward.Item, quest.Reward.Quantity);
     }
 
     private void OnEnable()

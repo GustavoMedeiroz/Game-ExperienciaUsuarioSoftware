@@ -20,7 +20,4 @@ public class PlayerDialog : ScriptableObject
 
     [Header("Dialogue")]
     [TextArea] public String Dialogue;
-
-    [Header("Show")]
-    public bool CanShow;
 }

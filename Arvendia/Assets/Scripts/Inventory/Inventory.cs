@@ -13,10 +13,13 @@ public class Inventory : Singleton<Inventory>
     [Header("Testing")]
     public InventoryItem testItem;
 
+    [Header("Sound")]
+    [SerializeField] private AudioSource healthRecoveryAudio;
+
     public int InventorySize => inventorySize;
     public InventoryItem[] InventoryItems => inventoryItems;
 
-    private readonly string INVENTORY_KEY_DATA = "MY_INVENTORY_3";
+    private readonly string INVENTORY_KEY_DATA = "MY_INVENTORY_1";
 
     public void Start()
     {
@@ -24,7 +27,7 @@ public class Inventory : Singleton<Inventory>
         VerifyItemsForDraw();
         LoadInventory();
         // para apagar os dados do inventorio
-        SaveGame.Delete(INVENTORY_KEY_DATA);
+        //SaveGame.Delete(INVENTORY_KEY_DATA);
     }
 
     private void Update()
@@ -39,7 +42,12 @@ public class Inventory : Singleton<Inventory>
     {
         if (item == null || quantity <= 0) return;
 
-        Debug.Log("Recebeu " + item.name);
+        if (item.IsUnique && CheckItemExists(item.ID))
+        {
+            Debug.Log($"Item único '{item.Name}' já existe no inventário.");
+            return;
+        }
+
         List<int> itemIndexes = CheckItemStock(item.ID);
         if (item.IsStackable && itemIndexes.Count > 0)
         {
@@ -74,11 +82,28 @@ public class Inventory : Singleton<Inventory>
         SaveInventory();
     }
 
+    // Método para verificar se o item já existe no inventário
+    private bool CheckItemExists(string itemID)
+    {
+        foreach (var inventoryItem in inventoryItems)
+        {
+            if (inventoryItem != null && inventoryItem.ID == itemID)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
     public void UseItem(int index)
     {
         if (inventoryItems[index] == null) return;
         if (inventoryItems[index].UseItem())
         {
+            if (inventoryItems[index] is ItemHealthPotion)
+            {
+                healthRecoveryAudio.Play();
+            }
             DecreaseItemStack(index);
         }
 

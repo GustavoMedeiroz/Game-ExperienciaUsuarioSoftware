@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public enum ItemType
@@ -20,6 +21,7 @@ public class InventoryItem : ScriptableObject
     public ItemType ItemType;
     public bool IsConsumable;
     public bool IsStackable;
+    public bool IsUnique;
     public int MaxStack;
 
     [HideInInspector] public int Quantity;
@@ -44,5 +46,10 @@ public class InventoryItem : ScriptableObject
     public virtual void RemoveItem()
     {
 
+    }
+
+    internal bool UseItem(AudioSource healthRecoveryAudio)
+    {
+        throw new NotImplementedException();
     }
 }

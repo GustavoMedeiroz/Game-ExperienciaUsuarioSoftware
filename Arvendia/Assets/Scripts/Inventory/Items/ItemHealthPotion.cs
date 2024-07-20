@@ -6,6 +6,8 @@ public class ItemHealthPotion : InventoryItem
     [Header("Config")]
     public float HealthValue;
 
+
+
     public override bool UseItem()
     {
         if (GameManager.Instance.Player.PlayerHealth.CanRestoreHealth())

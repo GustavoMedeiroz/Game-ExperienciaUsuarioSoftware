@@ -16,6 +16,9 @@ public class InventoryUI : Singleton<InventoryUI>
     [SerializeField] private TextMeshProUGUI itemNameTMP;
     [SerializeField] private TextMeshProUGUI itemDescriptionTMP;
 
+    [Header("Audio")]
+    [SerializeField] private AudioSource openCloseAudio;
+
     public InventorySlot CurrentSlot { get; set; }
 
     private List<InventorySlot> slotList = new List<InventorySlot>();
@@ -90,6 +93,7 @@ public class InventoryUI : Singleton<InventoryUI>
 
     public void OpenCloseInventory()
     {
+        openCloseAudio.Play();
         inventoryPanel.SetActive(!inventoryPanel.activeSelf);
         if (inventoryPanel.activeSelf == false)
         {

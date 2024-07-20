@@ -16,11 +16,14 @@ public class Quest : ScriptableObject
     public bool hasProgress;
 
     [Header("Reward")]
-    public QuestItemReward Reward;
+    public QuestItemReward Reward_Key;
+    public QuestItemReward Reward_Mana;
+    public QuestItemReward Reward_Health;
 
     //[HideInInspector]
     public int CurrentStatus;
     public bool QuestCompleted;
+    public bool isRewardGiven;
 
     public void AddProgress(int amount)
     {

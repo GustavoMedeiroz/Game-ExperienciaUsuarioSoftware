@@ -1,6 +1,4 @@
-using System;
 using TMPro;
-using UnityEditor.U2D.Aseprite;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -18,9 +16,7 @@ public class DialogueManager : Singleton<DialogueManager>
 
     public void ShowDialogue(PlayerDialog playerDialog)
     {
-        if (!playerDialog.CanShow) return;
-
-        if (playerDialog.type is TypeDialog.puzzleQuest && playerDialog.CanShow)
+        if (playerDialog.type is TypeDialog.puzzleQuest)
         {
             dialogPanelPuzzle.SetActive(true);
             playerIconPuzzle.sprite = playerDialog.Icon;

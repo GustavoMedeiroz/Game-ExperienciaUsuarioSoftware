@@ -18,5 +18,15 @@ MonoBehaviour:
   Description: "Onde as criaturas prosperam, dez \xE9 o n\xFAmero que desencadear\xE1
     o segredo escondido."
   hasProgress: 1
+  Reward_Key:
+    Item: {fileID: 11400000, guid: 431280a8f2f178a41af84ff5608b7c8b, type: 2}
+    Quantity: 1
+  Reward_Mana:
+    Item: {fileID: 11400000, guid: 2843a3446ee670e4a840bd808549f807, type: 2}
+    Quantity: 1
+  Reward_Health:
+    Item: {fileID: 11400000, guid: c492507219882cb4a95e5fee17ba9ed6, type: 2}
+    Quantity: 1
   CurrentStatus: 0
-  QuestCompleted: 0
+  QuestCompleted: 1
+  isRewardGiven: 1

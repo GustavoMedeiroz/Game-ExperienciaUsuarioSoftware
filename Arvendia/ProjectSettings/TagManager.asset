@@ -9,7 +9,7 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Puzzle
+  - 
   - Water
   - UI
   - 
@@ -48,11 +48,11 @@ TagManager:
   - name: Player
     uniqueID: 146712375
     locked: 0
-  - name: Projectile
-    uniqueID: 4147834995
-    locked: 0
   - name: UI
     uniqueID: 1487374843
+    locked: 0
+  - name: Projectile
+    uniqueID: 4147834995
     locked: 0
   - name: Puzzle
     uniqueID: 1389132897

@@ -18,8 +18,15 @@ MonoBehaviour:
   Description: "Um enigma antigo aguarda sua solu\xE7\xE3o para revelar o pr\xF3ximo
     fragmento do caminho."
   hasProgress: 0
-  Reward:
+  Reward_Key:
     Item: {fileID: 11400000, guid: f0db85071cb62d441b48a0493e948bf5, type: 2}
+    Quantity: 1
+  Reward_Mana:
+    Item: {fileID: 11400000, guid: 2843a3446ee670e4a840bd808549f807, type: 2}
+    Quantity: 1
+  Reward_Health:
+    Item: {fileID: 11400000, guid: c492507219882cb4a95e5fee17ba9ed6, type: 2}
     Quantity: 1
   CurrentStatus: 0
   QuestCompleted: 1
+  isRewardGiven: 1

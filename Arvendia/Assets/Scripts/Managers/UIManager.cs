@@ -1,5 +1,4 @@
-using System;
-using System.Collections;
+using UnityEngine.SceneManagement;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -20,67 +19,56 @@ public class UIManager : MonoBehaviour
 
     [Header("Hearts")]
     [SerializeField] private Image[] hearts;
-    [SerializeField] private Sprite fullHeart;
-    [SerializeField] private Sprite emptyHeart;
 
     [Header("Extra Panels")]
     [SerializeField] private GameObject playerQuestPanel;
-    [SerializeField] private GameObject puzzlePanel;
     [SerializeField] private DialogueManager DialogueManager;
+    [SerializeField] private PlayerDialog dialogue;
 
-    [Header("Outro")]
-    public PuzzleManager puzzleManager;
+    [Header("Extra Panels")]
+    [SerializeField] private Quest quest;
+    [SerializeField] private QuestManager questManager;
+
+    [Header("Audio")]
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioSource openPanelSound;
+
+    private PlayerActions inputActions;
+
+    private void Awake()
+    {
+        inputActions = new PlayerActions();
+
+        inputActions.UI.OpenInventory.performed += ctx => ToggleInventoryPanel();
+        inputActions.UI.OpenQuest.performed += ctx => ToggleQuestPanel();
+    }
 
     private void Update()
     {
+        VerifyPuzzle();
         UpdatePlayerUI();
+    }
+
+    private void VerifyPuzzle()
+    {
+        if (quest.QuestCompleted && !quest.isRewardGiven)
+        {
+            DialogueManager.ShowDialogue(dialogue);
+            audioSource.Play();
+            questManager.AddToInventory(quest);
+        }
     }
 
     public void OpenClosePlayerQuestPanel(bool value)
     {
+        openPanelSound.Play();
         playerQuestPanel.SetActive(value);
     }
 
     public void OpenPuzzlePanel()
     {
         DialogueManager.CloseDialoguePuzzle();
-        puzzleManager.SetPlayerActive(false);
-        puzzlePanel.SetActive(true);
-    }
-
-    public void ClosePuzzlePanel()
-    {
-        // puzzlePanel.SetActive(false);
-        // puzzleManager.SetPlayerActive(true);
-        StartCoroutine(ClosePuzzlePanelRoutine());
-    }
-
-    private IEnumerator ClosePuzzlePanelRoutine()
-    {
-        // Suavemente diminuir a opacidade do painel
-        CanvasGroup canvasGroup = puzzlePanel.GetComponent<CanvasGroup>();
-        if (canvasGroup == null)
-        {
-            canvasGroup = puzzlePanel.AddComponent<CanvasGroup>();
-        }
-
-        float duration = 0.2f; // Duração da transição
-        float elapsedTime = 0f;
-
-        while (elapsedTime < duration)
-        {
-            elapsedTime += Time.deltaTime;
-            canvasGroup.alpha = Mathf.Lerp(1, 0, elapsedTime / duration);
-            yield return null;
-        }
-
-        puzzlePanel.SetActive(false);
-        canvasGroup.alpha = 1; // Restaurar a opacidade para o próximo uso
-
-        // Exibir animação do player segurando o pedaço da chave
-        //playerAnimator.SetTrigger("HoldKeyPiece"); // Assegure-se de que há um trigger chamado "HoldKeyPiece" no Animator
-
-        puzzleManager.SetPlayerActive(true);
+        SceneManager.LoadScene("PuzzleScene");
     }
 
     private void UpdatePlayerUI()
@@ -93,8 +81,27 @@ public class UIManager : MonoBehaviour
 
         healthTMP.text = $"{stats.Health} / {stats.MaxHealth}";
         manaTMP.text = $"{stats.Mana} / {stats.MaxMana}";
+    }
 
-        //UpdateHeartsUI();
+    private void OnEnable()
+    {
+        inputActions.UI.Enable();
+    }
+
+    private void OnDisable()
+    {
+        inputActions.UI.Disable();
+    }
+
+    private void ToggleInventoryPanel()
+    {
+        InventoryUI.Instance.OpenCloseInventory();
+    }
+
+    private void ToggleQuestPanel()
+    {
+        openPanelSound.Play();
+        playerQuestPanel.SetActive(!playerQuestPanel.activeSelf);
     }
 
     // public void UpdateHeartsUI()
