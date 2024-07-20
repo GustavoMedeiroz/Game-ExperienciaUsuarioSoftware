@@ -9,7 +9,7 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Puzzle
   - Water
   - UI
   - 
@@ -42,6 +42,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: QuestItem
+    uniqueID: 3625672363
+    locked: 0
   - name: Player
     uniqueID: 146712375
     locked: 0
@@ -50,4 +53,7 @@ TagManager:
     locked: 0
   - name: UI
     uniqueID: 1487374843
+    locked: 0
+  - name: Puzzle
+    uniqueID: 1389132897
     locked: 0

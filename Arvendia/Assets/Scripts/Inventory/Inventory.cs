@@ -16,7 +16,7 @@ public class Inventory : Singleton<Inventory>
     public int InventorySize => inventorySize;
     public InventoryItem[] InventoryItems => inventoryItems;
 
-    private readonly string INVENTORY_KEY_DATA = "MY_INVENTORY";
+    private readonly string INVENTORY_KEY_DATA = "MY_INVENTORY_3";
 
     public void Start()
     {
@@ -24,7 +24,7 @@ public class Inventory : Singleton<Inventory>
         VerifyItemsForDraw();
         LoadInventory();
         // para apagar os dados do inventorio
-        //SaveGame.Delete(INVENTORY_KEY_DATA);
+        SaveGame.Delete(INVENTORY_KEY_DATA);
     }
 
     private void Update()
@@ -38,6 +38,8 @@ public class Inventory : Singleton<Inventory>
     public void AddItem(InventoryItem item, int quantity)
     {
         if (item == null || quantity <= 0) return;
+
+        Debug.Log("Recebeu " + item.name);
         List<int> itemIndexes = CheckItemStock(item.ID);
         if (item.IsStackable && itemIndexes.Count > 0)
         {
