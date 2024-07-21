@@ -23,10 +23,12 @@ public class UIManager : MonoBehaviour
     [Header("Extra Panels")]
     [SerializeField] private GameObject playerQuestPanel;
     [SerializeField] private DialogueManager DialogueManager;
-    [SerializeField] private PlayerDialog dialogue;
+    [SerializeField] private PlayerDialog dialoguePuzzleComplete;
+    [SerializeField] private PlayerDialog dialogueJigsawComplete;
 
     [Header("Extra Panels")]
-    [SerializeField] private Quest quest;
+    [SerializeField] private Quest questPuzzle;
+    [SerializeField] private Quest questJigsaw;
     [SerializeField] private QuestManager questManager;
 
     [Header("Audio")]
@@ -51,11 +53,19 @@ public class UIManager : MonoBehaviour
 
     private void VerifyPuzzle()
     {
-        if (quest.QuestCompleted && !quest.isRewardGiven)
+        if (questPuzzle.QuestCompleted && !questPuzzle.isRewardGiven)
         {
-            DialogueManager.ShowDialogue(dialogue);
+            DialogueManager.ShowDialogue(dialoguePuzzleComplete);
             audioSource.Play();
-            questManager.AddToInventory(quest);
+            questManager.AddToInventory(questPuzzle);
+        }
+
+        if (questJigsaw.QuestCompleted && !questJigsaw.isRewardGiven)
+        {
+            DialogueManager.ShowDialogue(dialogueJigsawComplete);
+            audioSource.Play();
+            questManager.AddToInventory(questJigsaw);
+            // TODO: abrir os portões
         }
     }
 
@@ -69,6 +79,12 @@ public class UIManager : MonoBehaviour
     {
         DialogueManager.CloseDialoguePuzzle();
         SceneManager.LoadScene("PuzzleScene");
+    }
+
+    public void OpenJigsawPanel()
+    {
+        DialogueManager.CloseDialoguePuzzle();
+        SceneManager.LoadScene("JigsawScene");
     }
 
     private void UpdatePlayerUI()

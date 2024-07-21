@@ -5,6 +5,7 @@ public enum TypeDialog
 {
     normal,
     puzzleQuest,
+    jigsawQuest,
 }
 
 [CreateAssetMenu(fileName = "PlayerDialog", menuName = "Player Dialog")]

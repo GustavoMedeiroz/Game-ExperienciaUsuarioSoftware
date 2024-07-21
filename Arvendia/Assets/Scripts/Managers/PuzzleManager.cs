@@ -88,7 +88,6 @@ public class PuzzleManager : MonoBehaviour
             shuffling = true;
             IsPuzzleComplete = true;
             quest.QuestCompleted = true;
-            //questManagerPuzzle.AddToInventory(quest);
             isInitialized = false;
             StartCoroutine(TransitionToMainScene());
         }

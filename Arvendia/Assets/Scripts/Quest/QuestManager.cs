@@ -26,7 +26,11 @@ public class QuestManager : Singleton<QuestManager>
 
     public void AddToInventory(Quest quest)
     {
-        Inventory.Instance.AddItem(quest.Reward_Key.Item, quest.Reward_Key.Quantity);
+        if (quest.Reward_Key != null)
+        {
+            Inventory.Instance.AddItem(quest.Reward_Key.Item, quest.Reward_Key.Quantity);
+        }
+
         Inventory.Instance.AddItem(quest.Reward_Mana.Item, quest.Reward_Mana.Quantity);
         Inventory.Instance.AddItem(quest.Reward_Health.Item, quest.Reward_Health.Quantity);
         quest.isRewardGiven = true;

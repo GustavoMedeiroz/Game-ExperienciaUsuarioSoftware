@@ -76,7 +76,6 @@ public class QuestCardPlayer : QuestCard
     {
         if (QuestToComplete.QuestCompleted)
         {
-            Debug.Log("Quest completada");
             statusTMP.enabled = false;
             if (Inventory.Instance == null)
             {
