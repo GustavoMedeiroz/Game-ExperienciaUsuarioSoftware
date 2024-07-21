@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 529c2dbfc5161184f83612467d7ce38f, type: 3}
+  m_Name: Quest_Hidden_Enigma
+  m_EditorClassIdentifier: 
+  Name: Enigma das Dunas
+  ID: HiddenEnigma
+  QuestGoal: 1
+  Description: "Um enigma antigo aguarda sua solu\xE7\xE3o para revelar o pr\xF3ximo
+    fragmento do caminho."
+  hasProgress: 0
+  Reward_Key:
+    Item: {fileID: 11400000, guid: f0db85071cb62d441b48a0493e948bf5, type: 2}
+    Quantity: 1
+  Reward_Mana:
+    Item: {fileID: 11400000, guid: 2843a3446ee670e4a840bd808549f807, type: 2}
+    Quantity: 1
+  Reward_Health:
+    Item: {fileID: 11400000, guid: c492507219882cb4a95e5fee17ba9ed6, type: 2}
+    Quantity: 1
+  CurrentStatus: 0
+  QuestCompleted: 0
+  isRewardGiven: 0
