@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - storyImages
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -12,7 +13,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - Enemy
   - 
   - 
   - 
@@ -47,6 +48,9 @@ TagManager:
     locked: 0
   - name: Prop
     uniqueID: 363630591
+    locked: 0
+  - name: Enemy
+    uniqueID: 4109310791
     locked: 0
   - name: Player
     uniqueID: 146712375
