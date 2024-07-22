@@ -7,5 +7,9 @@ AnimatorOverrideController:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Enemy_Mushroom
-  m_Controller: {fileID: 0}
-  m_Clips: []
+  m_Controller: {fileID: 9100000, guid: dfa185fd59765a642834d908a402c2fa, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: efcb4a9cfce250a43bc1c6a83d82ef11, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: e62dd2991b8269342929ac89f1c1dc4c, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 8d5efcdbe4a582f4b9ea21fe131761d1, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 965a95fb79d9e714093fdf8cbf80efec, type: 2}
