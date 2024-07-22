@@ -55,7 +55,9 @@ public class PlayerHealth : MonoBehaviour, IDamageable
 
     public void TakeDamage(float amount)
     {
+        if (stats.Health <= 0f) return;
         stats.Health -= amount;
+        DamageManager.Instance.ShowDamageText(amount, transform);
         if (stats.Health <= 0f)
         {
             if (stats.Life > 1)
