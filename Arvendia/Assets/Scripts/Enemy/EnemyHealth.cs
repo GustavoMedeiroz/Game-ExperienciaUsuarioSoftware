@@ -39,6 +39,7 @@ public class EnemyHealth : MonoBehaviour, IDamageable
             enemyBrain.enabled = false;
             enemySelector.NoSelectionCallback();
             gameObject.layer = LayerMask.NameToLayer("Ignore Raycast");
+            OnEnemyDeadEvent?.Invoke();
         }
         else
         {
