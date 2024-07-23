@@ -47,5 +47,6 @@ public class Player : MonoBehaviour
         stats.ResetPlayer();
         playerLife.UpdateHeartsUI();
         animations.ResetPlayer();
+        PlayerMana.ResetMana();
     }
 }

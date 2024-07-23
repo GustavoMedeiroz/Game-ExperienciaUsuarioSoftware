@@ -35,10 +35,10 @@ public class EnemyHealth : MonoBehaviour, IDamageable
         CurrentHealth -= amount;
         if (CurrentHealth <= 0f)
         {
-            DisableEnemy();
-            QuestManager.Instance.AddProgress("Kill2Enemy", 1); 
-            QuestManager.Instance.AddProgress("Kill5Enemy", 1);
-            QuestManager.Instance.AddProgress("Kill10Enemy", 1);
+            animator.SetTrigger("Dead");
+            enemyBrain.enabled = false;
+            enemySelector.NoSelectionCallback();
+            gameObject.layer = LayerMask.NameToLayer("Ignore Raycast");
         }
         else
         {

@@ -5,12 +5,13 @@ public class PlayerMana : MonoBehaviour
 {
     [Header("Config")]
     [SerializeField] private PlayerStats stats;
-
     [SerializeField] private float manaRecoveryAmount = 1f; // quantidade de mana a recuperar
     [SerializeField] private float recoveryInterval = 5f; // intervalo de tempo entre as recuperações de mana
+    public float CurrentMana { get; private set; }
 
     private void Start()
     {
+        ResetMana();
         StartCoroutine(RecoverManaOverTime());
     }
 
@@ -39,7 +40,13 @@ public class PlayerMana : MonoBehaviour
         {
             // atribui o maior valor
             stats.Mana = Mathf.Max(stats.Mana -= amount, 0f);
+            CurrentMana = stats.Mana;
         }
+    }
+
+    public void ResetMana()
+    {
+        CurrentMana = stats.MaxMana;
     }
 
     private IEnumerator RecoverManaOverTime()
