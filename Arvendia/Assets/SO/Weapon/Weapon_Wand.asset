@@ -15,5 +15,5 @@ MonoBehaviour:
   Icon: {fileID: 21300000, guid: 3e647f6e233b720428ad75fbf1041bd0, type: 3}
   WeaponType: 0
   Damage: 4
-  ProjectilePrefab: {fileID: 611962155026807803, guid: ff5a68d65497d25428aefda71d0cf811, type: 3}
-  RequiredMana: 1
+  ProjectilePrefab: {fileID: 4734849776796767364, guid: ff5a68d65497d25428aefda71d0cf811, type: 3}
+  RequiredMana: 3
