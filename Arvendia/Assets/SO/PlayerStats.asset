@@ -21,3 +21,6 @@ MonoBehaviour:
   MaxLife: 3
   playerPosition: {x: -12.550011, y: 2.77, z: 0}
   startPosition: {x: -7.51, y: 2.77, z: 0}
+  BaseDamage: 2
+  CriticalChance: 10
+  CriticalDamage: 50
