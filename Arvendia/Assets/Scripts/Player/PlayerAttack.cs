@@ -14,6 +14,7 @@ public class PlayerAttack : MonoBehaviour
     private EnemyBrain enemyTarget;
     private Coroutine attackCoroutine;
     private PlayerMovement playerMovement;
+    private PlayerMana playerMana;
 
     private Transform currentAttackPosition;
     private float currentAttackRotation;
@@ -22,6 +23,7 @@ public class PlayerAttack : MonoBehaviour
     private void Awake()
     {
         actions = new PlayerActions();
+        playerMana = GetComponent<PlayerMana>();
         playerMovement = GetComponent<PlayerMovement>();
         playerAnimations = GetComponent<PlayerAnimations>();
     }
@@ -54,6 +56,7 @@ public class PlayerAttack : MonoBehaviour
             Quaternion rotation = Quaternion.Euler(new Vector3(0f, 0f, currentAttackRotation));
             Projectile projectile = Instantiate(initialWeapon.ProjectilePrefab, currentAttackPosition.position, rotation);
             projectile.Direction = Vector3.up;
+            playerMana.UseMana(initialWeapon.RequiredMana);
         }
 
         playerAnimations.SetAttackAnimation(true);
