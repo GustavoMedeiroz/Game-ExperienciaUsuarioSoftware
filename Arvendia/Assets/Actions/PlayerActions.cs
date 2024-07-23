@@ -142,6 +142,34 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Attack"",
+            ""id"": ""bcb678d1-8df5-4983-b69d-2aee9377500d"",
+            ""actions"": [
+                {
+                    ""name"": ""ClickAttack"",
+                    ""type"": ""Button"",
+                    ""id"": ""58a26867-478d-40ad-8463-6b5f63bcd819"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""b702276b-27de-49db-8926-cfd86bb13927"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ClickAttack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -153,6 +181,9 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_OpenInventory = m_UI.FindAction("OpenInventory", throwIfNotFound: true);
         m_UI_OpenQuest = m_UI.FindAction("OpenQuest", throwIfNotFound: true);
+        // Attack
+        m_Attack = asset.FindActionMap("Attack", throwIfNotFound: true);
+        m_Attack_ClickAttack = m_Attack.FindAction("ClickAttack", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -310,6 +341,52 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
         }
     }
     public UIActions @UI => new UIActions(this);
+
+    // Attack
+    private readonly InputActionMap m_Attack;
+    private List<IAttackActions> m_AttackActionsCallbackInterfaces = new List<IAttackActions>();
+    private readonly InputAction m_Attack_ClickAttack;
+    public struct AttackActions
+    {
+        private @PlayerActions m_Wrapper;
+        public AttackActions(@PlayerActions wrapper) { m_Wrapper = wrapper; }
+        public InputAction @ClickAttack => m_Wrapper.m_Attack_ClickAttack;
+        public InputActionMap Get() { return m_Wrapper.m_Attack; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(AttackActions set) { return set.Get(); }
+        public void AddCallbacks(IAttackActions instance)
+        {
+            if (instance == null || m_Wrapper.m_AttackActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_AttackActionsCallbackInterfaces.Add(instance);
+            @ClickAttack.started += instance.OnClickAttack;
+            @ClickAttack.performed += instance.OnClickAttack;
+            @ClickAttack.canceled += instance.OnClickAttack;
+        }
+
+        private void UnregisterCallbacks(IAttackActions instance)
+        {
+            @ClickAttack.started -= instance.OnClickAttack;
+            @ClickAttack.performed -= instance.OnClickAttack;
+            @ClickAttack.canceled -= instance.OnClickAttack;
+        }
+
+        public void RemoveCallbacks(IAttackActions instance)
+        {
+            if (m_Wrapper.m_AttackActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IAttackActions instance)
+        {
+            foreach (var item in m_Wrapper.m_AttackActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_AttackActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public AttackActions @Attack => new AttackActions(this);
     public interface IMovementActions
     {
         void OnMove(InputAction.CallbackContext context);
@@ -318,5 +395,9 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
     {
         void OnOpenInventory(InputAction.CallbackContext context);
         void OnOpenQuest(InputAction.CallbackContext context);
+    }
+    public interface IAttackActions
+    {
+        void OnClickAttack(InputAction.CallbackContext context);
     }
 }
