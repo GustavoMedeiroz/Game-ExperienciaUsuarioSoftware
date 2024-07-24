@@ -3,7 +3,8 @@ using UnityEngine;
 public enum WeaponType
 {
     Magic,
-    Fight
+    Fight,
+    Consumable
 }
 
 [CreateAssetMenu(fileName = "Weapon_", menuName = "Weapon")]
@@ -17,5 +18,8 @@ public class Weapon : ScriptableObject
     [Header("Projectile")]
     public Projectile ProjectilePrefab;
     public float RequiredMana;
+
+    [Header("Sound")]
+    public AudioClip audioClip;
 }
 

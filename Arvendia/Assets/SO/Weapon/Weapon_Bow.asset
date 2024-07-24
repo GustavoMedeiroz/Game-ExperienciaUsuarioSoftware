@@ -17,3 +17,4 @@ MonoBehaviour:
   Damage: 1.5
   ProjectilePrefab: {fileID: 6322547673938821355, guid: 468aff97323a18647840cc28d58daa84, type: 3}
   RequiredMana: 1
+  audioClip: {fileID: 8300000, guid: 9ca01377795c0094aa1f91350aed78db, type: 3}

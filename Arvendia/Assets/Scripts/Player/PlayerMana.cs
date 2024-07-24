@@ -27,6 +27,7 @@ public class PlayerMana : MonoBehaviour
     {
         stats.Mana += amount;
         stats.Mana = Mathf.Min(stats.Mana, stats.MaxMana);
+        CurrentMana = stats.Mana;
     }
 
     public bool CanRecoverMana()

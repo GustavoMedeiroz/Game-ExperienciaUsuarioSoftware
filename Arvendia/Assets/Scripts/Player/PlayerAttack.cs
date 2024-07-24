@@ -14,6 +14,10 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] private ParticleSystem slashFX;
     [SerializeField] private float minDistanceMeleeAttack;
 
+    [Header("Audio Source")]
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip audioClipFailMana;
+
     public Weapon CurrentWeapon { get; set; }
 
     private PlayerActions actions;
@@ -26,7 +30,7 @@ public class PlayerAttack : MonoBehaviour
     private Transform currentAttackPosition;
     private float currentAttackRotation;
 
-    
+
     private void Awake()
     {
         actions = new PlayerActions();
@@ -37,7 +41,8 @@ public class PlayerAttack : MonoBehaviour
 
     private void Start()
     {
-        CurrentWeapon = initialWeapon;
+        WeaponManager.Instance.EquipWeapon(initialWeapon);
+
         actions.Attack.ClickAttack.performed += ctx => Attack();
     }
 
@@ -60,16 +65,23 @@ public class PlayerAttack : MonoBehaviour
     private IEnumerator IEAttack()
     {
         if (currentAttackPosition == null) yield break;
-        if (CurrentWeapon.WeaponType == WeaponType.Magic)
+        if (CurrentWeapon == null) yield break;
+        if (CurrentWeapon.WeaponType == WeaponType.Magic || CurrentWeapon.WeaponType == WeaponType.Consumable)
         {
-            if (playerMana.CurrentMana < CurrentWeapon.RequiredMana) yield break;
+            if (playerMana.CurrentMana < CurrentWeapon.RequiredMana)
+            {
+                playerAnimations.SetAttackAnimation(false);
+                audioSource.PlayOneShot(audioClipFailMana);
+                yield break;
+            }
+
             MagicAttack();
         }
         else
         {
             MeleeAttack();
         }
-        
+
         playerAnimations.SetAttackAnimation(true);
         yield return new WaitForSeconds(0.5f);
         playerAnimations.SetAttackAnimation(false);
@@ -82,18 +94,35 @@ public class PlayerAttack : MonoBehaviour
         projectile.Direction = Vector3.up;
         projectile.Damage = GetAttackDamage();
         playerMana.UseMana(CurrentWeapon.RequiredMana);
+        audioSource.PlayOneShot(CurrentWeapon.audioClip);
+        if (CurrentWeapon.WeaponType == WeaponType.Consumable)
+        {
+            RemoveConsumableWeapon();
+        }
     }
 
     private void MeleeAttack()
     {
         slashFX.transform.position = currentAttackPosition.position;
         slashFX.Play();
+        audioSource.PlayOneShot(CurrentWeapon.audioClip);
         float currentDistanceToEnemy =
             Vector3.Distance(enemyTarget.transform.position, transform.position);
         if (currentDistanceToEnemy <= minDistanceMeleeAttack)
         {
             enemyTarget.GetComponent<IDamageable>().TakeDamage(GetAttackDamage());
         }
+    }
+
+    public void EquipWeapon(Weapon newWeapon)
+    {
+        CurrentWeapon = newWeapon;
+    }
+
+    private void RemoveConsumableWeapon()
+    {
+        CurrentWeapon = null;
+        WeaponManager.Instance.DesequiparWeapon(CurrentWeapon);
     }
 
     private float GetAttackDamage()
@@ -123,7 +152,7 @@ public class PlayerAttack : MonoBehaviour
                 currentAttackRotation = -270f;
                 break;
         }
-        
+
         switch (moveDirection.y)
         {
             case > 0f:
@@ -136,7 +165,7 @@ public class PlayerAttack : MonoBehaviour
                 break;
         }
     }
-    
+
     private void EnemySelectedCallback(EnemyBrain enemySelected)
     {
         enemyTarget = enemySelected;
@@ -146,7 +175,7 @@ public class PlayerAttack : MonoBehaviour
     {
         enemyTarget = null;
     }
-    
+
     private void OnEnable()
     {
         actions.Enable();
