@@ -20,6 +20,7 @@ MonoBehaviour:
   ItemType: 0
   IsConsumable: 1
   IsStackable: 1
+  IsUnique: 0
   MaxStack: 1
   Quantity: 0
   Weapon: {fileID: 11400000, guid: a6e847933ec919d42ad4d3087eebecef, type: 2}

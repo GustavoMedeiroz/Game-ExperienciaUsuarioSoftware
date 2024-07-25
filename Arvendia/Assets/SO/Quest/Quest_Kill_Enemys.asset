@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Assalto ao Covil
   ID: KillEnemy
-  QuestGoal: 10
+  QuestGoal: 5
   Description: "Onde as criaturas prosperam, dez \xE9 o n\xFAmero que desencadear\xE1
     o segredo escondido."
   hasProgress: 1
@@ -27,6 +27,6 @@ MonoBehaviour:
   Reward_Health:
     Item: {fileID: 11400000, guid: c492507219882cb4a95e5fee17ba9ed6, type: 2}
     Quantity: 1
-  CurrentStatus: 0
+  CurrentStatus: 5
   QuestCompleted: 1
   isRewardGiven: 1

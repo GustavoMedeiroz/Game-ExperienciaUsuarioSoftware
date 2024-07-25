@@ -22,6 +22,11 @@ public class PlayerStats : ScriptableObject
     public Vector3 playerPosition;
     public Vector3 startPosition;
 
+    [Header("Attack")]
+    public float BaseDamage;
+    public float CriticalChance;
+    public float CriticalDamage;
+
     public void ResetPlayer()
     {
         Health = MaxHealth;
