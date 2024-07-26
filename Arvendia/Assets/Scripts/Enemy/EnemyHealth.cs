@@ -4,7 +4,7 @@ using UnityEngine;
 public class EnemyHealth : MonoBehaviour, IDamageable
 {
     public static event Action OnEnemyDeadEvent;
-    
+
     [Header("Config")]
     [SerializeField] private float health;
 
@@ -15,7 +15,7 @@ public class EnemyHealth : MonoBehaviour, IDamageable
     private EnemyBrain enemyBrain;
     private EnemyLoot enemyLoot;
     private EnemySelector enemySelector;
-    
+
     private void Awake()
     {
         rb2D = GetComponent<Rigidbody2D>();
@@ -40,6 +40,7 @@ public class EnemyHealth : MonoBehaviour, IDamageable
             enemySelector.NoSelectionCallback();
             gameObject.layer = LayerMask.NameToLayer("Ignore Raycast");
             OnEnemyDeadEvent?.Invoke();
+            QuestManager.Instance.AddProgress("KillEnemy", 1);
         }
         else
         {

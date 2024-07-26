@@ -10,6 +10,9 @@ public class Inventory : Singleton<Inventory>
     [SerializeField] private int inventorySize;
     [SerializeField] private InventoryItem[] inventoryItems;
 
+    [Header("Weapon")]
+    public InventoryItem initialWeapon;
+
     [Header("Testing")]
     public InventoryItem testItem;
 
@@ -26,6 +29,7 @@ public class Inventory : Singleton<Inventory>
         inventoryItems = new InventoryItem[inventorySize];
         VerifyItemsForDraw();
         LoadInventory();
+        AddItem(initialWeapon, 1);
         // para apagar os dados do inventorio
         //SaveGame.Delete(INVENTORY_KEY_DATA);
     }
@@ -98,6 +102,7 @@ public class Inventory : Singleton<Inventory>
     public void UseItem(int index)
     {
         if (inventoryItems[index] == null) return;
+
         if (inventoryItems[index].UseItem())
         {
             if (inventoryItems[index] is ItemHealthPotion)
@@ -108,6 +113,7 @@ public class Inventory : Singleton<Inventory>
         }
 
         SaveInventory();
+
     }
 
     public void RemoveItem(int index)
@@ -123,6 +129,7 @@ public class Inventory : Singleton<Inventory>
         InventoryUI.Instance.DrawItem(null, index);
 
         SaveInventory();
+        InventoryUI.Instance.OpenCloseInventory();
     }
 
     public void EquipItem(int index)
@@ -130,6 +137,13 @@ public class Inventory : Singleton<Inventory>
         if (inventoryItems[index] == null) return;
         if (inventoryItems[index].ItemType != ItemType.Weapon) return;
         inventoryItems[index].EquipItem();
+
+        if (inventoryItems[index].IsConsumable)
+        {
+            RemoveItem(index);
+        }
+
+        InventoryUI.Instance.OpenCloseInventory();
     }
 
     private void AddItemFreeSlot(InventoryItem item, int quantity)
@@ -137,6 +151,7 @@ public class Inventory : Singleton<Inventory>
         for (int i = 0; i < inventorySize; i++)
         {
             if (inventoryItems[i] != null) continue;
+
             inventoryItems[i] = item.CopyItem();
             inventoryItems[i].Quantity = quantity;
             InventoryUI.Instance.DrawItem(inventoryItems[i], i);

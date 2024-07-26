@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class ActionAttack : FSMAction
@@ -5,10 +6,11 @@ public class ActionAttack : FSMAction
     [Header("Config")]
     [SerializeField] private float damage;
     [SerializeField] private float timeBtwAttacks;
+    [SerializeField] private AudioSource audioSource;
 
     private EnemyBrain enemyBrain;
     private float timer;
-    
+
     private void Awake()
     {
         enemyBrain = GetComponent<EnemyBrain>();
@@ -27,7 +29,16 @@ public class ActionAttack : FSMAction
         {
             IDamageable player = enemyBrain.Player.GetComponent<IDamageable>();
             player.TakeDamage(damage);
+            PlayAttackSound();
             timer = timeBtwAttacks;
+        }
+    }
+
+    private void PlayAttackSound()
+    {
+        if (audioSource != null)
+        {
+            audioSource.Play(); // Reproduza o som de ataque
         }
     }
 }
