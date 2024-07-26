@@ -9,6 +9,7 @@ public class BossActionAttack : FSMAction
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private GameObject projectilePrefab; // Prefab do projétil
     [SerializeField] private Transform firePoint; // Ponto de origem do projétil
+    [SerializeField] private ActionPatrol actionPatrol;
 
     private EnemyBrain enemyBrain;
     private float timer;
@@ -21,6 +22,7 @@ public class BossActionAttack : FSMAction
     public override void Act()
     {
         AttackPlayer();
+        actionPatrol.Act();
     }
 
     private void AttackPlayer()
