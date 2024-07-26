@@ -1,10 +1,11 @@
-﻿using System;
+using System;
 using UnityEngine;
 
-public class EnemyBrain : MonoBehaviour
+public class BossBrain : MonoBehaviour
 {
     [SerializeField] private string initState; // PatrolState
     [SerializeField] private FSMState[] states;
+    [SerializeField] private ActionPatrol actionPatrol;
     
     public FSMState CurrentState { get; set; }
     public Transform Player { get; set; }
@@ -16,7 +17,8 @@ public class EnemyBrain : MonoBehaviour
 
     private void Update()
     {
-        CurrentState?.UpdateState(this);
+
+        actionPatrol.Act();
     }
 
     public void ChangeState(string newStateID)
