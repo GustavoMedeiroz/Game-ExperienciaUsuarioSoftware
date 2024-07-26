@@ -2978,7 +2978,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 164f3d190581c2d4fa90d6f686853cf1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chaseSpeed: 0
+  chaseSpeed: 1
 --- !u!114 &146235607
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7482,7 +7482,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 164f3d190581c2d4fa90d6f686853cf1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chaseSpeed: 0
+  chaseSpeed: 1
 --- !u!114 &399694315
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -66466,7 +66466,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 164f3d190581c2d4fa90d6f686853cf1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chaseSpeed: 0
+  chaseSpeed: 2
 --- !u!114 &698428512
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -66526,6 +66526,9 @@ MonoBehaviour:
     - Decision: {fileID: 698428512}
       TrueState: 
       FalseState: Wander
+    - Decision: {fileID: 698428510}
+      TrueState: Attack
+      FalseState: 
   - ID: Attack
     Actions:
     - {fileID: 698428509}
@@ -67458,7 +67461,7 @@ Transform:
   m_GameObject: {fileID: 778584333}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 66.78, y: -14.45, z: 0}
+  m_LocalPosition: {x: 78.42, y: -22.72, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -67508,6 +67511,9 @@ MonoBehaviour:
     - Decision: {fileID: 778584343}
       TrueState: 
       FalseState: Wander
+    - Decision: {fileID: 778584342}
+      TrueState: Attack
+      FalseState: 
   - ID: Attack
     Actions:
     - {fileID: 778584344}
@@ -67662,7 +67668,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 164f3d190581c2d4fa90d6f686853cf1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chaseSpeed: 0
+  chaseSpeed: 2
 --- !u!114 &778584342
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -70155,7 +70161,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 164f3d190581c2d4fa90d6f686853cf1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chaseSpeed: 0
+  chaseSpeed: 1
 --- !u!114 &955345452
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -74417,7 +74423,7 @@ MonoBehaviour:
       FalseState: 
   - ID: Attack
     Actions:
-    - {fileID: 170164781}
+    - {fileID: 1194620293}
     Transitions:
     - Decision: {fileID: 1194620294}
       TrueState: 
@@ -84066,7 +84072,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 164f3d190581c2d4fa90d6f686853cf1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chaseSpeed: 0
+  chaseSpeed: 1
 --- !u!114 &1430286666
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -84414,7 +84420,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 164f3d190581c2d4fa90d6f686853cf1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chaseSpeed: 0
+  chaseSpeed: 1
 --- !u!114 &1433665802
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -101181,7 +101187,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 164f3d190581c2d4fa90d6f686853cf1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chaseSpeed: 0
+  chaseSpeed: 1
 --- !u!114 &1827063441
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -103633,7 +103639,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 164f3d190581c2d4fa90d6f686853cf1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chaseSpeed: 0
+  chaseSpeed: 1
 --- !u!114 &1954635793
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -105446,16 +105452,16 @@ MonoBehaviour:
   states:
   - ID: Wander
     Actions:
-    - {fileID: 778584335}
+    - {fileID: 2048943707}
     Transitions:
-    - Decision: {fileID: 778584343}
+    - Decision: {fileID: 2048943715}
       TrueState: Chase
       FalseState: 
   - ID: Chase
     Actions:
-    - {fileID: 778584341}
+    - {fileID: 2048943714}
     Transitions:
-    - Decision: {fileID: 778584343}
+    - Decision: {fileID: 2048943715}
       TrueState: 
       FalseState: Wander
     - Decision: {fileID: 2048943713}
@@ -105631,7 +105637,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 164f3d190581c2d4fa90d6f686853cf1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chaseSpeed: 0
+  chaseSpeed: 2
 --- !u!114 &2048943715
 MonoBehaviour:
   m_ObjectHideFlags: 0
