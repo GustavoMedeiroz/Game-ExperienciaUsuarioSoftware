@@ -2982,7 +2982,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 164f3d190581c2d4fa90d6f686853cf1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chaseSpeed: 0
+  chaseSpeed: 1.2
 --- !u!114 &146235607
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7838,7 +7838,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 164f3d190581c2d4fa90d6f686853cf1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chaseSpeed: 0
+  chaseSpeed: 1.3
 --- !u!114 &399694315
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24625,7 +24625,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 8
-      m_TileSpriteIndex: 72
+      m_TileSpriteIndex: 76
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -25225,7 +25225,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 28
-      m_TileSpriteIndex: 65
+      m_TileSpriteIndex: 75
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -27855,7 +27855,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 41
-      m_TileSpriteIndex: 64
+      m_TileSpriteIndex: 74
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -33595,7 +33595,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 22
-      m_TileSpriteIndex: 63
+      m_TileSpriteIndex: 73
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -34875,7 +34875,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 24
-      m_TileSpriteIndex: 62
+      m_TileSpriteIndex: 72
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -35295,7 +35295,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 48
-      m_TileSpriteIndex: 61
+      m_TileSpriteIndex: 71
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -51145,7 +51145,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 1
-      m_TileSpriteIndex: 60
+      m_TileSpriteIndex: 70
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -51505,7 +51505,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 0
-      m_TileSpriteIndex: 59
+      m_TileSpriteIndex: 69
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -55145,7 +55145,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 53
-      m_TileSpriteIndex: 58
+      m_TileSpriteIndex: 68
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -62035,7 +62035,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 52
-      m_TileSpriteIndex: 57
+      m_TileSpriteIndex: 67
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -62455,7 +62455,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 51
-      m_TileSpriteIndex: 54
+      m_TileSpriteIndex: 66
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -62738,12 +62738,32 @@ Tilemap:
     m_Data: {fileID: 0}
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 1
-    m_Data: {fileID: -1339875201, guid: e903bb0c7cf06ad49b0354a1ab1ee9e5, type: 3}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 0
     m_Data: {fileID: 0}
   - m_RefCount: 269
     m_Data: {fileID: -1284922040, guid: 64179f401db051c419558db3aa4b3b07, type: 3}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 1
+    m_Data: {fileID: -1339875201, guid: e903bb0c7cf06ad49b0354a1ab1ee9e5, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: -689572961, guid: e903bb0c7cf06ad49b0354a1ab1ee9e5, type: 3}
   - m_RefCount: 1
@@ -62762,28 +62782,8 @@ Tilemap:
     m_Data: {fileID: 1679334830, guid: 64179f401db051c419558db3aa4b3b07, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: -933661226, guid: 64179f401db051c419558db3aa4b3b07, type: 3}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
   - m_RefCount: 1
     m_Data: {fileID: 1164682813, guid: 4156240ce35fdf74589edeb52dfebfaf, type: 3}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
   - m_RefCount: 1
     m_Data: {fileID: 1354518693, guid: 4156240ce35fdf74589edeb52dfebfaf, type: 3}
   - m_RefCount: 1
@@ -67604,7 +67604,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 164f3d190581c2d4fa90d6f686853cf1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chaseSpeed: 0
+  chaseSpeed: 1.5
 --- !u!114 &698428512
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -67664,6 +67664,9 @@ MonoBehaviour:
     - Decision: {fileID: 698428512}
       TrueState: 
       FalseState: Wander
+    - Decision: {fileID: 698428510}
+      TrueState: Attack
+      FalseState: 
   - ID: Attack
     Actions:
     - {fileID: 698428509}
@@ -68874,7 +68877,7 @@ Transform:
   m_GameObject: {fileID: 778584333}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 62.19, y: -16.77, z: 0}
+  m_LocalPosition: {x: 61.51, y: -17.08, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -68924,6 +68927,9 @@ MonoBehaviour:
     - Decision: {fileID: 778584343}
       TrueState: 
       FalseState: Wander
+    - Decision: {fileID: 778584342}
+      TrueState: Attack
+      FalseState: 
   - ID: Attack
     Actions:
     - {fileID: 778584344}
@@ -69078,7 +69084,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 164f3d190581c2d4fa90d6f686853cf1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chaseSpeed: 0
+  chaseSpeed: 1.5
 --- !u!114 &778584342
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -72181,7 +72187,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 164f3d190581c2d4fa90d6f686853cf1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chaseSpeed: 0
+  chaseSpeed: 1.2
 --- !u!114 &955345452
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -87129,7 +87135,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 164f3d190581c2d4fa90d6f686853cf1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chaseSpeed: 0
+  chaseSpeed: 1.2
 --- !u!114 &1430286666
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -87477,7 +87483,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 164f3d190581c2d4fa90d6f686853cf1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chaseSpeed: 0
+  chaseSpeed: 1.2
 --- !u!114 &1433665802
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -104244,7 +104250,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 164f3d190581c2d4fa90d6f686853cf1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chaseSpeed: 0
+  chaseSpeed: 1.2
 --- !u!114 &1827063441
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -107134,7 +107140,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 164f3d190581c2d4fa90d6f686853cf1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chaseSpeed: 0
+  chaseSpeed: 1.2
 --- !u!114 &1954635793
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -109046,7 +109052,7 @@ MonoBehaviour:
     Actions:
     - {fileID: 778584341}
     Transitions:
-    - Decision: {fileID: 778584343}
+    - Decision: {fileID: 2048943715}
       TrueState: 
       FalseState: Wander
     - Decision: {fileID: 2048943713}
@@ -109222,7 +109228,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 164f3d190581c2d4fa90d6f686853cf1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chaseSpeed: 0
+  chaseSpeed: 1.5
 --- !u!114 &2048943715
 MonoBehaviour:
   m_ObjectHideFlags: 0
