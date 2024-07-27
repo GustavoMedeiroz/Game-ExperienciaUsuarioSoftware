@@ -35,6 +35,12 @@ public class UIManager : MonoBehaviour
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private AudioSource openPanelSound;
 
+    [Header("Gate")]
+    [SerializeField] private GameObject openGate; // Novo sprite para exibir
+    [SerializeField] private GameObject closeGate;
+
+    [SerializeField] private GamePauseManager gamePauseManager;
+
     private PlayerActions inputActions;
 
     private void Awake()
@@ -65,13 +71,22 @@ public class UIManager : MonoBehaviour
             DialogueManager.ShowDialogue(dialogueJigsawComplete);
             audioSource.Play();
             questManager.AddToInventory(questJigsaw);
-            // TODO: abrir os portões
+            openGate.SetActive(true);
+            closeGate.SetActive(false);
         }
     }
 
     public void OpenClosePlayerQuestPanel(bool value)
     {
         openPanelSound.Play();
+        if (value)
+        {
+            gamePauseManager.PauseGame();
+        }
+        else
+        {
+            gamePauseManager.ResumeGame();
+        }
         playerQuestPanel.SetActive(value);
     }
 
@@ -119,21 +134,4 @@ public class UIManager : MonoBehaviour
         openPanelSound.Play();
         playerQuestPanel.SetActive(!playerQuestPanel.activeSelf);
     }
-
-    // public void UpdateHeartsUI()
-    // {
-    //     for (int i = 0; i < stats.MaxLife; i++)
-    //     {
-    //         if (i < stats.Life)
-    //         {
-    //             hearts[i].sprite = fullHeart;
-    //         }
-    //         else
-    //         {
-    //             hearts[i].sprite = emptyHeart;
-    //         }
-
-    //         hearts[i].enabled = i < hearts.Length;
-    //     }
-    // }
 }

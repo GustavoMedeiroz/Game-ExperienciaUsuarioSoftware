@@ -6,6 +6,11 @@ public class GameManager : Singleton<GameManager>
     [SerializeField] private Player player;
     [SerializeField] private PlayerStats playerStats;
 
+    [Header("Gate")]
+    [SerializeField] private Quest quest;
+    [SerializeField] private GameObject openGate; // Novo sprite para exibir
+    [SerializeField] private GameObject closeGate;
+
     public Player Player => player;
 
     public Vector2 playerPosition;
@@ -13,6 +18,16 @@ public class GameManager : Singleton<GameManager>
     private void Start()
     {
         LoadPlayerPosition();
+        if (quest.QuestCompleted)
+        {
+            openGate.SetActive(true);
+            closeGate.SetActive(false);
+        }
+        else
+        {
+            openGate.SetActive(false);
+            closeGate.SetActive(true);
+        }
     }
 
     private void Update()
