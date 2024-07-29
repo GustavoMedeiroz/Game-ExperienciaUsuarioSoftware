@@ -61,3 +61,6 @@ TagManager:
   - name: Projectile
     uniqueID: 560094073
     locked: 0
+  - name: GameOver
+    uniqueID: 3203990391
+    locked: 0

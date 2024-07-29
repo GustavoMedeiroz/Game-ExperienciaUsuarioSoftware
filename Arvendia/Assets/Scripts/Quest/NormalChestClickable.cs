@@ -84,10 +84,14 @@ public class NormalChestClickable : MonoBehaviour
             {
                 Inventory.Instance.AddItem(chestData.weapon.Item, chestData.weapon.Quantity);
             }
-
-            Inventory.Instance.AddItem(chestData.mana.Item, chestData.mana.Quantity);
-            Inventory.Instance.AddItem(chestData.health.Item, chestData.health.Quantity);
-            //InventoryUI.Instance.OpenCloseInventory();
+            if (chestData.mana.Quantity > 0)
+            {
+                Inventory.Instance.AddItem(chestData.mana.Item, chestData.mana.Quantity);
+            }
+            if (chestData.health.Quantity > 0)
+            {
+                Inventory.Instance.AddItem(chestData.health.Item, chestData.health.Quantity);
+            }
             chestData.isRewardGiven = true;
         }
         else

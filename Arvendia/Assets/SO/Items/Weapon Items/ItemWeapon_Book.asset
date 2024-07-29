@@ -16,7 +16,7 @@ MonoBehaviour:
   Name: "Livro M\xE1gico"
   Icon: {fileID: 21300000, guid: 6019e96afb2057f45930762b66648a64, type: 3}
   Description: "Um livro m\xE1gico que dispara bolas de fogo.\nCausa muito dando,
-    mas s\xF3 pode ser usando uma vez."
+    mas s\xF3 pode ser usando uma vez.\nDano: 12\nEnergia: 2"
   ItemType: 0
   IsConsumable: 1
   IsStackable: 1

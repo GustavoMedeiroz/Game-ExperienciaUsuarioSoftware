@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class BossActionAttack : FSMAction
@@ -6,6 +5,8 @@ public class BossActionAttack : FSMAction
     [Header("Config")]
     [SerializeField] private float damage;
     [SerializeField] private float timeBtwAttacks;
+
+
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private GameObject projectilePrefab; // Prefab do projétil
     [SerializeField] private Transform firePoint; // Ponto de origem do projétil
@@ -18,6 +19,7 @@ public class BossActionAttack : FSMAction
     {
         enemyBrain = GetComponent<EnemyBrain>();
     }
+
 
     public override void Act()
     {

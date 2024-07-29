@@ -31,7 +31,7 @@ public class Inventory : Singleton<Inventory>
         LoadInventory();
         AddItem(initialWeapon, 1);
         // para apagar os dados do inventorio
-        //SaveGame.Delete(INVENTORY_KEY_DATA);
+        SaveGame.Delete(INVENTORY_KEY_DATA);
     }
 
     private void Update()

@@ -49,6 +49,7 @@ public class Quest : ScriptableObject
     {
         QuestCompleted = false;
         CurrentStatus = 0;
+        isRewardGiven = false;
     }
 
 }

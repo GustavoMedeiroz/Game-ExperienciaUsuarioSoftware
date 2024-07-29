@@ -15,10 +15,11 @@ MonoBehaviour:
   ID: ManaPotion
   Name: "Po\xE7\xE3o de Energia"
   Icon: {fileID: 21300000, guid: f39f80ff89ae10346966bfeb894a15c4, type: 3}
-  Description: "Uma po\xE7\xE3o especial que recupera 5 pontos de energia."
+  Description: "Uma po\xE7\xE3o especial que recupera 15 pontos de energia."
   ItemType: 1
   IsConsumable: 1
   IsStackable: 1
+  IsUnique: 0
   MaxStack: 10
   Quantity: 0
-  ManaValue: 5
+  ManaValue: 15

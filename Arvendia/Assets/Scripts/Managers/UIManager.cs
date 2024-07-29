@@ -22,9 +22,13 @@ public class UIManager : MonoBehaviour
 
     [Header("Extra Panels")]
     [SerializeField] private GameObject playerQuestPanel;
+    [SerializeField] private GameObject pausePanel;
+    [SerializeField] private GameObject confirmationPanel;
     [SerializeField] private DialogueManager DialogueManager;
     [SerializeField] private PlayerDialog dialoguePuzzleComplete;
     [SerializeField] private PlayerDialog dialogueJigsawComplete;
+
+    [SerializeField] private GameObject controlesPanel;
 
     [Header("Extra Panels")]
     [SerializeField] private Quest questPuzzle;
@@ -49,6 +53,7 @@ public class UIManager : MonoBehaviour
 
         inputActions.UI.OpenInventory.performed += ctx => ToggleInventoryPanel();
         inputActions.UI.OpenQuest.performed += ctx => ToggleQuestPanel();
+        inputActions.UI.Pause.performed += ctx => TogglePausePanel();
     }
 
     private void Update()
@@ -90,6 +95,23 @@ public class UIManager : MonoBehaviour
         playerQuestPanel.SetActive(value);
     }
 
+    public void TogglePausePanel()
+    {
+        openPanelSound.Play();
+        if (pausePanel.activeSelf)
+        {
+            Debug.Log("Está ativo!");
+            pausePanel.SetActive(false);
+            gamePauseManager.ResumeGame();
+
+        }
+        else
+        {
+            gamePauseManager.PauseGame();
+            pausePanel.SetActive(true);
+        }
+    }
+
     public void OpenPuzzlePanel()
     {
         DialogueManager.CloseDialoguePuzzle();
@@ -102,6 +124,21 @@ public class UIManager : MonoBehaviour
         SceneManager.LoadScene("JigsawScene");
     }
 
+    public void OnExitButtonPressed()
+    {
+        confirmationPanel.SetActive(true);
+    }
+
+    public void OnNoButtonPressed()
+    {
+        confirmationPanel.SetActive(false);
+    }
+
+    public void OnYesButtonPressed()
+    {
+        SceneManager.LoadScene("MenuScene");
+    }
+
     private void UpdatePlayerUI()
     {
 
@@ -110,7 +147,16 @@ public class UIManager : MonoBehaviour
         manaBar.fillAmount = Mathf.Lerp(manaBar.fillAmount,
             stats.Mana / stats.MaxMana, 10f * Time.deltaTime);
 
-        healthTMP.text = $"{stats.Health} / {stats.MaxHealth}";
+
+        if (stats.Health < 0)
+        {
+            healthTMP.text = $"{0} / {stats.MaxHealth}";
+        }
+        else
+        {
+            healthTMP.text = $"{stats.Health} / {stats.MaxHealth}";
+        }
+
         manaTMP.text = $"{stats.Mana} / {stats.MaxMana}";
     }
 
@@ -127,6 +173,11 @@ public class UIManager : MonoBehaviour
     private void ToggleInventoryPanel()
     {
         InventoryUI.Instance.OpenCloseInventory();
+    }
+
+    public void ToggleControlesPanel()
+    {
+        controlesPanel.SetActive(!controlesPanel.activeSelf);
     }
 
     private void ToggleQuestPanel()

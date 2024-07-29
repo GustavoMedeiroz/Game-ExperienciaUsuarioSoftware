@@ -17,6 +17,7 @@ public class GameManager : Singleton<GameManager>
 
     private void Start()
     {
+        Debug.Log("INICIOU");
         LoadPlayerPosition();
         if (quest.QuestCompleted)
         {
@@ -32,12 +33,12 @@ public class GameManager : Singleton<GameManager>
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            player.ResetPlayer();
-            player.transform.position = playerStats.startPosition;
-        }
-        // Atualize a posição do jogador no GameManager
+        // if (Input.GetKeyDown(KeyCode.R))
+        // {
+        //     player.ResetPlayer();
+        //     player.transform.position = playerStats.startPosition;
+        // }
+        // // Atualize a posição do jogador no GameManager
         if (player != null)
         {
             playerStats.playerPosition = player.transform.position;

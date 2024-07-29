@@ -1,6 +1,6 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,6 +10,13 @@ public class PlayerLife : MonoBehaviour
     [Header("Config")]
     [SerializeField] private PlayerStats stats;
     private PlayerAnimations playerAnimations;
+
+    [SerializeField] private GamePauseManager gamePauseManager;
+    [SerializeField] private SoundManager audioManager;
+    [SerializeField] private GameObject GameOverPanel;
+    [SerializeField] private GameObject GameOverPanelAnim;
+    [SerializeField] private GameObject GameOverPanelStatic;
+    [SerializeField] private AudioSource GameOverSound;
 
     public Image[] hearts;
     public Sprite fullHeart;
@@ -59,10 +66,29 @@ public class PlayerLife : MonoBehaviour
 
     private void PlayerDead()
     {
-        {
 
+        {
+            StartCoroutine(DelayDeathScene());
         }
+    }
+
+    private IEnumerator DelayDeathScene()
+    {
         playerAnimations.SetDeadAnimation();
+
+        GameOverSound.Play();
+
+        audioManager.StopAllSounds();
+
+        GameOverPanel.SetActive(true);
+
+        GameOverPanelAnim.SetActive(true);
+
+        yield return new WaitForSeconds(4.0f);
+
+        GameOverPanelStatic.SetActive(true);
+
+        GameOverPanelAnim.SetActive(false);
     }
 
     public void IncrementLife()

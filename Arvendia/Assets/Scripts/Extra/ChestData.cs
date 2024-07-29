@@ -7,4 +7,5 @@ public class ChestData : ScriptableObject
     public ChestItemReward weapon;
     public ChestItemReward mana;
     public ChestItemReward health;
+
 }

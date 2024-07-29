@@ -1,5 +1,10 @@
 ﻿using System;
 using UnityEngine;
+using TMPro;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+using System.Collections;
+
 
 public class EnemyHealth : MonoBehaviour, IDamageable
 {
@@ -7,6 +12,12 @@ public class EnemyHealth : MonoBehaviour, IDamageable
 
     [Header("Config")]
     [SerializeField] private float health;
+    [SerializeField] private bool isBoss;
+
+    [Header("Bars")]
+    [SerializeField] private Image healthBar;
+    [SerializeField] private TextMeshProUGUI healthTMP;
+    [SerializeField] private GameObject vitoriaPanel;
 
     public float CurrentHealth { get; private set; }
 
@@ -30,23 +41,60 @@ public class EnemyHealth : MonoBehaviour, IDamageable
         CurrentHealth = health;
     }
 
+    private void Update()
+    {
+        if (isBoss)
+        {
+            healthBar.fillAmount = Mathf.Lerp(healthBar.fillAmount,
+            CurrentHealth / health, 10f * Time.deltaTime);
+            if (CurrentHealth < 0)
+            {
+                healthTMP.text = $"{0} / {health}";
+            }
+            else
+            {
+                healthTMP.text = $"{CurrentHealth} / {health}";
+            }
+        }
+
+    }
     public void TakeDamage(float amount)
     {
         CurrentHealth -= amount;
         if (CurrentHealth <= 0f)
         {
+            Debug.Log("MORREU");
             animator.SetTrigger("Dead");
             enemyBrain.enabled = false;
             enemySelector.NoSelectionCallback();
             gameObject.layer = LayerMask.NameToLayer("Ignore Raycast");
             OnEnemyDeadEvent?.Invoke();
-            QuestManager.Instance.AddProgress("KillEnemy", 1);
+
+            if (isBoss)
+            {
+                vitoriaPanel.SetActive(true);
+                StartCoroutine(DelayDeathScene());
+            }
+
+            if (!isBoss)
+            {
+                QuestManager.Instance.AddProgress("KillEnemy", 1);
+            }
         }
         else
         {
             DamageManager.Instance.ShowDamageText(amount, transform);
         }
     }
+
+    private IEnumerator DelayDeathScene()
+    {
+
+
+        yield return new WaitForSeconds(2.0f);
+        SceneManager.LoadScene("VictoryScene");
+    }
+
 
     private void DisableEnemy()
     {

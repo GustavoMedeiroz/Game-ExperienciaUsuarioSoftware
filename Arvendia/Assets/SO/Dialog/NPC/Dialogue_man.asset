@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Dialogue_man
   m_EditorClassIdentifier: 
   Name: Balthazar
-  Icon: {fileID: 1922893708, guid: 5b80d7897a15fe44db43784be879e2a2, type: 3}
+  Icon: {fileID: -1877397161, guid: 188c14d9822f02e4cbca6ec4e41f283c, type: 3}
   HasInteraction: 0
   InteractionType: 0
   Greeting: Aldrin, certo?
