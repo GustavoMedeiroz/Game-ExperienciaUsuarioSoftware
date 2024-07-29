@@ -19,6 +19,8 @@ public class InventoryUI : Singleton<InventoryUI>
     [Header("Audio")]
     [SerializeField] private AudioSource openCloseAudio;
 
+    [SerializeField] private GamePauseManager gamePauseManager;
+
     public InventorySlot CurrentSlot { get; set; }
 
     private List<InventorySlot> slotList = new List<InventorySlot>();
@@ -94,6 +96,14 @@ public class InventoryUI : Singleton<InventoryUI>
     public void OpenCloseInventory()
     {
         openCloseAudio.Play();
+        if (inventoryPanel.activeSelf)
+        {
+            gamePauseManager.ResumeGame();
+        }
+        else
+        {
+            gamePauseManager.PauseGame();
+        }
         inventoryPanel.SetActive(!inventoryPanel.activeSelf);
         if (inventoryPanel.activeSelf == false)
         {

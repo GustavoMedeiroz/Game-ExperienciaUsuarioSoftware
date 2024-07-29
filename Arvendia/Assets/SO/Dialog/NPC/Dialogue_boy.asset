@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18c4c10f0b697d7458ca1862c7063f47, type: 3}
+  m_Name: Dialogue_boy
+  m_EditorClassIdentifier: 
+  Name: Rowan
+  Icon: {fileID: -11771744, guid: c9bd88f035bad6d4880c346e5c65e776, type: 3}
+  HasInteraction: 0
+  InteractionType: 0
+  Greeting: Estou com medo, sr. Ninja!
+  Dialogue:
+  - "O vil\xE3o malvado deixou a vila cheia de monstros."

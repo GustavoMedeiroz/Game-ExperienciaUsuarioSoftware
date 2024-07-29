@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 133d9f683a40e4b418167208acd7d4cc
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - inventoryItem: {instanceID: 0}
+  - reawardGivenAudio: {instanceID: 0}
+  - hitAudio: {instanceID: 0}
+  - player: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

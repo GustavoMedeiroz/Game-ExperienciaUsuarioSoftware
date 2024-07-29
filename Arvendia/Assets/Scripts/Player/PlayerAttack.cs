@@ -53,7 +53,7 @@ public class PlayerAttack : MonoBehaviour
 
     private void Attack()
     {
-        if (enemyTarget == null) return;
+        if (enemyTarget == null) return; //<<<<<<<<<<<<<<<<
         if (attackCoroutine != null)
         {
             StopCoroutine(attackCoroutine);

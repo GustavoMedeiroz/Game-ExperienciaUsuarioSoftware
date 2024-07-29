@@ -1,18 +1,30 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 
-public class NPCInterection : MonoBehaviour
+public class NPCInteraction : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [Header("Config")]
+    [SerializeField] private NPCDialogue dialogueToShow;
+    [SerializeField] private GameObject interactionBox;
+
+    public NPCDialogue DialogueToShow => dialogueToShow;
+
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        
+        if (other.CompareTag("Player"))
+        {
+            NPCDialogueManager.Instance.NPCSelected = this;
+            interactionBox.SetActive(true);
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerExit2D(Collider2D other)
     {
-        
+        if (other.CompareTag("Player"))
+        {
+            NPCDialogueManager.Instance.NPCSelected = null;
+            NPCDialogueManager.Instance.CloseDialoguePanel();
+            interactionBox.SetActive(false);
+        }
     }
 }
