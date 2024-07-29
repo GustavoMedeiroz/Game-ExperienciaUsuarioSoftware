@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+using UnityEngine.SceneManagement;
+
 public class PlayerLife : MonoBehaviour
 {
 
@@ -60,10 +62,25 @@ public class PlayerLife : MonoBehaviour
     private void PlayerDead()
     {
         {
-
+          StartCoroutine(DelayDeathScene());
         }
+
         playerAnimations.SetDeadAnimation();
     }
+
+     private IEnumerator DelayDeathScene()
+    {
+        // Executa a animação de morte
+        //playerAnimations.SetTrigger("Dead"); // Supondo que "Dead" é o trigger para a animação de morte
+
+        // Aguarda 3 segundos
+        yield return new WaitForSeconds(2.0f);
+
+        // Carrega a cena de morte
+        SceneManager.LoadScene("DeathScene");
+    }
+
+
 
     public void IncrementLife()
     {
